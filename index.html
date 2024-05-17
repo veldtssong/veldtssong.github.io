@@ -4,32 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edric Maglalang</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        .navbar {
-            flex: 1;
-            background-color: #f4f4f4;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .content {
-            flex: 2;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-            box-sizing: border-box;
-            gap: 10px;
-        }
-        .content img {
-            width: calc(33.333% - 10px);
-            height: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
 </head>
 <body>
     <div class="navbar">
@@ -42,15 +17,16 @@
         </ul>
     </div>
     <div class="content">
-        <img src="Edric\campaign (1).JPG" alt="Image 1">
-        <img src="Edric\campaign (2).JPG" alt="Image 2">
-        <img src="Edric\campaign (3).JPG" alt="Image 3">
-        <img src="Edric\campaign (4).JPG" alt="Image 4">
-        <img src="Edric\campaign (5).JPG" alt="Image 5">
-        <img src="Edric\campaign (6).JPG" alt="Image 6">
-        <img src="Edric\campaign (6).JPG" alt="Image 7">
-        <img src="https://via.placeholder.com/150" alt="Image 8">
-        <img src="https://via.placeholder.com/150" alt="Image 9">
+        <div class="grid-container">
+            <div class="row">
+                <div class="grid-item"><img src="Edric\campaign (1).JPG" alt="Image 1"></div>
+                <div class="grid-item"><img src="Edric\campaign (2).JPG" alt="Image 2"></div>
+            </div>
+            <div class="row">
+                <div class="grid-item"><img src="Edric\campaign (3).JPG" alt="Image 3"></div>
+                <div class="grid-item"><img src="Edric\campaign (4).JPG" alt="Image 4"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

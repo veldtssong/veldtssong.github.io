@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    font-family: "Helvetica Light", Arial, sans-serif;
+    letter-spacing: -0.06em; /* Kerning */
+}
+
+.navbar {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Fill the entire viewport height */
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.grid-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Adjust as needed */
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.grid-item:nth-child(odd) img {
+    margin-top: 30%; /* Set the top margin to 30% of the image width */
+}
