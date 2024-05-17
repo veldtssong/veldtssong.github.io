@@ -24,15 +24,15 @@ h3 {
 }
 
 .navbar {
-    background-color: #f4f4f4;
+    background-color: #a59a9a;
     padding: 20px;
     min-width: 300px; /* Set a minimum width in pixels */
     max-width: 20%; /* Set a maximum width as 20% of the viewport */
     width: 50%;
-    height: 100vh; /* Ensure navbar takes full viewport height */
+    height: 100%; /* Ensure navbar takes full viewport height */
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    margin-right: 20%; /* Add margin for space between navbar and grid container */
 }
 
 .navbar ul {
@@ -44,13 +44,13 @@ h3 {
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two columns layout */
-    grid-template-rows: auto auto; /* Two rows layout */
+    grid-template-rows: auto; /* Adjust rows layout */
     gap: 20px; /* Adjust spacing between items */
     flex: 1;
     overflow: auto; /* Add scroll if content exceeds viewport */
     align-items: center; /* Center the items vertically */
     justify-items: center; /* Center the items horizontally */
-    padding: 20px;
+    padding: 30px; /* Default padding */
 }
 
 .grid-item {
@@ -94,16 +94,11 @@ img {
     }
 
     .navbar {
-        padding: 10px; /* Reduce padding for smaller screens */
-        min-width: 100%; /* Ensure navbar takes full width */
-        max-width: 100%;
+        padding: 15px; /* Reduce padding for smaller screens */
+        min-width: 50%; /* Ensure navbar takes full width */
+        max-width: 80%;
         width: 100%;
-        height: auto; /* Allow height to adjust to content */
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-rows: auto; /* Adjust rows layout */
+        height: 100%; /* Allow height to adjust to content */
     }
 
     .grid-item {
@@ -115,7 +110,6 @@ img {
     }
 }
 
-/* Media Queries for very small screens (mobile devices) */
 @media (max-width: 480px) {
     .navbar {
         padding: 5px; /* Further reduce padding for very small screens */
@@ -127,5 +121,10 @@ img {
 
     .grid-item:nth-child(odd) {
         margin-top: 5%; /* Further reduce top margin for very small screens */
+    }
+
+    .grid-container {
+        width: 100%; /* Ensure the grid container spans the full width */
+        padding: 20px 20px; /* Adjust padding for very small screens */
     }
 }
