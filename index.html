@@ -7,22 +7,7 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
 </head>
 <body>
-    <div class="navbar">
-        <h2>edric maglalang</h2>
-        <h2>styling + direction</h2>
-        <h3>PHX / AZ</h3> 
-        <a href="https://www.instagram.com/veldts_song/">
-            <img class="instagram-logo" src="Edric\instagram_logo.png" alt="Instagram Logo">
-            
-        </a>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="editorials.html">EDITORIALS</a></li>
-            <li><a href="campaigns.html">CAMPAIGNS</a></li>
-            <li><a href="lookbook.html">LOOKBOOK</a></li>
-            <li><a href="vid.html">VIDEOS</a></li>
-        </ul>
-    </div>
+    <div id="navbar-placeholder"></div> <!-- Placeholder for the navbar -->
     <div class="content">
         <div class="grid-container">
             <div class="row">
@@ -55,5 +40,15 @@
             </div>
         </div>
     </div>
+    <script>
+        // JavaScript to load the navbar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navbar-placeholder").innerHTML = data;
+                });
+        });
+    </script>
 </body>
 </html>

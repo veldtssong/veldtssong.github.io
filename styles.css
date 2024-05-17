@@ -77,10 +77,13 @@ img {
 .grid-item:nth-child(odd) img {
     margin-top: 30%; /* Set the top margin to 30% of the image width */
 }
-/* Media Queries for mobile */
+/* Media Queries for tablets and smaller screens */
 @media (max-width: 768px) {
     .navbar {
         padding: 10px; /* Reduce padding for smaller screens */
+        min-width: 100%; /* Ensure navbar takes full width */
+        max-width: 100%;
+        width: 100%;
     }
 
     .grid-item {
@@ -93,3 +96,19 @@ img {
         margin-top: 10%; /* Reduce top margin for smaller screens */
     }
 }
+
+/* Media Queries for very small screens (mobile devices) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px; /* Further reduce padding for very small screens */
+    }
+
+    .grid-item {
+        margin: 0.5%; /* Further reduce margins for very small screens */
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .grid-item:nth-child(odd) img {
+        margin-top: 5%; /* Further reduce top margin for very small screens */
+    }
