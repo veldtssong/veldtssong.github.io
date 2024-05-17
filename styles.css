@@ -77,3 +77,19 @@ img {
 .grid-item:nth-child(odd) img {
     margin-top: 30%; /* Set the top margin to 30% of the image width */
 }
+/* Media Queries for mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .grid-item {
+        margin: 1%; /* Reduce margins for smaller screens */
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .grid-item:nth-child(odd) img {
+        margin-top: 10%; /* Reduce top margin for smaller screens */
+    }
+}
