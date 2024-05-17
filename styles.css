@@ -1,25 +1,41 @@
 body {
     margin: 0;
     display: flex;
-    height: 100vh;
+    min-height: 100vh; /* Set a minimum height to ensure the content fills the viewport */
     font-family: "Helvetica Light", Arial, sans-serif;
     letter-spacing: -0.06em; /* Kerning */
 }
+
 h3 {
     opacity: 0.5; /* Adjust the opacity value as needed */
 }
 
+.instagram-logo {
+    width: 20px; /* Set the width of the Instagram logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .navbar {
-    flex: 0 0 calc(33.33% - 20px); /* One-third minus padding */
     background-color: #f4f4f4;
     padding: 20px;
-    box-sizing: border-box;
+}
+.navbar ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
 }
 
 .grid-container {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Fill the entire viewport height */
+    flex: 1;
+    overflow: auto; /* Add scroll if content exceeds viewport */
+    align-items: center; /* Center the items horizontally */
 }
 
 .row {
@@ -30,9 +46,22 @@ h3 {
 .grid-item {
     flex-grow: 1; /* Adjust flex-grow for variable space between items */
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Arrange image and text vertically */
+    align-items: center; /* Center items horizontally */
     justify-content: center;
     margin: 2%; /* Adjust as needed */
+    margin-left: 5%; /* Additional left margin */
+    margin-right: 5%; /* Additional right margin */
+}
+
+p {
+    font-family: "Helvetica Light", Arial, sans-serif; /* Use the same font as body */
+    text-align: center; /* Center the text */
+}
+
+a {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Set link color to black */
 }
 
 img {
