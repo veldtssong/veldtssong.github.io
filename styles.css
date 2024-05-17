@@ -5,9 +5,12 @@ body {
     font-family: "Helvetica Light", Arial, sans-serif;
     letter-spacing: -0.06em; /* Kerning */
 }
+h3 {
+    opacity: 0.5; /* Adjust the opacity value as needed */
+}
 
 .navbar {
-    flex: 1;
+    flex: 0 0 calc(33.33% - 20px); /* One-third minus padding */
     background-color: #f4f4f4;
     padding: 20px;
     box-sizing: border-box;
@@ -25,11 +28,11 @@ body {
 }
 
 .grid-item {
-    flex: 1;
+    flex-grow: 1; /* Adjust flex-grow for variable space between items */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px; /* Adjust as needed */
+    margin: 2%; /* Adjust as needed */
 }
 
 img {
@@ -37,6 +40,7 @@ img {
     max-height: 100%;
     object-fit: contain;
 }
+
 .grid-item:nth-child(odd) img {
     margin-top: 30%; /* Set the top margin to 30% of the image width */
 }
