@@ -36,6 +36,10 @@ h3 {
     flex-grow: 1; /* Allow navbar to grow and fill available space */
 }
 
+.about {
+    opacity: 50%;
+}
+
 .navbar h1,
 .navbar h2,
 .navbar h3 {

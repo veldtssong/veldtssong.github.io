@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edric Maglalang</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+</head>
+<body>
+    <div id="navbar-placeholder"></div> <!-- Placeholder for the navbar -->
+    <div class="content">
+        <div class="grid-container">
+            <div class="row">
+                <div class="grid-item">
+                    <a href="#link1">
+                        <img src="Edric\campaign (1).JPG" alt="Image 1">
+                        <p>EDITORIALS</p>
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="#link2">
+                        <img src="Edric\campaign (2).JPG" alt="Image 2">
+                        <p>CAMPAIGNS</p>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="grid-item">
+                    <a href="#link3">
+                        <img src="Edric\campaign (3).JPG" alt="Image 3">
+                        <p>LOOKBOOK</p>
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="#link4">
+                        <img src="Edric\campaign (4).JPG" alt="Image 4">
+                        <p>VIDEOS</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript to load the navbar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navbar-placeholder").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
