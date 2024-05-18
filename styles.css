@@ -96,7 +96,7 @@ img {
 .grid-item:nth-child(odd) {
     grid-column: 1 / 2; /* Place odd items in the first column */
     grid-row: span 2; /* Span across two rows */
-    margin-top: 30%; /* Set the top margin for odd items */
+    margin-top: 1%; /* Set the top margin for odd items */
 }
 
 .grid-item:nth-child(even) {
