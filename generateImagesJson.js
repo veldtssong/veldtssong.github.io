@@ -65,7 +65,7 @@ fs.readdir(directory3, (err, files) => {
       images: imagePaths
     };
   
-    fs.writeFile('campaign.json', JSON.stringify(jsonData, null, 2), err => {
+    fs.writeFile('lookbook.json', JSON.stringify(jsonData, null, 2), err => {
       if (err) {
         console.error('Error writing JSON file:', err);
       } else {
