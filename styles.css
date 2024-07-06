@@ -156,21 +156,3 @@ img {
         padding: 15px; /* Adjusted padding for very small screens */
     }
 }
-
-.slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-}
-
-.mySlides {
-    display: none;
-    width: 100%;
-    transition: opacity 1s;
-    opacity: 0;
-}
-
-.mySlides.show {
-    display: block;
-    opacity: 1;
-}
