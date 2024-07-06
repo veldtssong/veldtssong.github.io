@@ -1,34 +1,38 @@
-name: Generate Images JSON
+name: Update JSON files
 
 on:
   push:
     branches:
-      - main  # Adjust branch name as needed
+      - main
 
 jobs:
-  generate-json:
+  update-json:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  # Use the latest version
+      uses: actions/checkout@v2
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2.4.0  # Use the latest version that supports Node.js v20
+      uses: actions/setup-node@v2
       with:
-        node-version: '20'
+        node-version: '14' # Use the Node.js version you need
 
     - name: Install dependencies
-      run: npm install  # or yarn install, depending on your setup
+      run: npm install
 
-    - name: Generate images JSON
-      run: |
-        node generateImagesJson.js  # Adjust script name if necessary
+    - name: Generate JSON files
+      run: node generateImagesJson.js
 
-    - name: Commit changes
+    - name: Configure Git
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add editorial.json
-        git commit -m "Update editorial.json"
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Commit and push changes
+      run: |
+        git add *.json
+        git commit -m "Update JSON files"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
