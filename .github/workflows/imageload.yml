@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2  # Use the latest version
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v2.4.0  # Use the latest version that supports Node.js v20
       with:
-        node-version: '14'
+        node-version: '20'
 
     - name: Install dependencies
       run: npm install  # or yarn install, depending on your setup
@@ -30,6 +30,5 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add editorial.json
-        git commit -m "Update images.json"
+        git commit -m "Update editorial.json"
         git push
-
