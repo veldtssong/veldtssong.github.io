@@ -8,38 +8,22 @@
 </head>
 <body>
     <div id="navbar-placeholder"></div> <!-- Placeholder for the navbar -->
-    <div class="content">
-        <div class="grid-container">
-            <div class="row">
-                <div class="grid-item">
-                    <a href="#link1">
-                        <img src="Edric\campaign (1).JPG" alt="Image 1">
-                        <p>EDITORIALS</p>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#link2">
-                        <img src="Edric\campaign (2).JPG" alt="Image 2">
-                        <p>CAMPAIGNS</p>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="grid-item">
-                    <a href="#link3">
-                        <img src="Edric\campaign (3).JPG" alt="Image 3">
-                        <p>LOOKBOOK</p>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#link4">
-                        <img src="Edric\campaign (4).JPG" alt="Image 4">
-                        <p>VIDEOS</p>
-                    </a>
-                </div>
-            </div>
+        <div class="contact">
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                
+                <button type="submit">Submit</button>
+            </form>
         </div>
-    </div>
+
     <script>
         // JavaScript to load the navbar
         document.addEventListener("DOMContentLoaded", function() {
@@ -48,6 +32,33 @@
                 .then(data => {
                     document.getElementById("navbar-placeholder").innerHTML = data;
                 });
+        });
+        
+    </script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get form data
+            let formData = new FormData(this);
+            
+            // Construct mailto link
+            let to = "recipient@example.com"; // Replace with your email address
+            let subject = "New Contact Form Submission";
+            let body = `
+                Name: ${formData.get('name')}
+                Email: ${formData.get('email')}
+                Message: ${formData.get('message')}
+            `;
+            
+            // Encode components for URL
+            let mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open mailto link in a new tab
+            window.open(mailtoLink, '_blank');
+            
+            // Optionally, clear the form fields
+            document.getElementById("contactForm").reset();
         });
     </script>
 </body>
