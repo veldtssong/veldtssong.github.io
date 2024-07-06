@@ -9,36 +9,33 @@
 <body>
     <div id="navbar-placeholder"></div> <!-- Placeholder for the navbar -->
     <div class="content">
-        <div class="grid-container">
-            <div class="row">
-                <div class="grid-item">
-                        <img src="pictures/Campaign/ari_sp_1.jpg" alt="Image 1">
-                    </a>
-                </div>
-                <div class="grid-item">
-                        <img src="pictures/Campaign/ari_sp_2.jpg" alt="Image 2">
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="grid-item">
-                        <img src="pictures\Campaign\COLLAGE_8.png" alt="Image 3">
-                    </a>
-                </div>
-                <div class="grid-item">
-                        <img src="pictures/Campaign/NICKTTSP-03.jpg" alt="Image 4">
-                    </a>
-                </div>
-            </div>
+        <div class="grid-container" id="image-grid">
+            <!-- Images will be loaded here dynamically -->
         </div>
     </div>
     <script>
-        // JavaScript to load the navbar
         document.addEventListener("DOMContentLoaded", function() {
             fetch("navbar.html")
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("navbar-placeholder").innerHTML = data;
+                });
+
+            fetch("campaign.json")
+                .then(response => response.json())
+                .then(data => {
+                    const gridContainer = document.getElementById("image-grid");
+                    data.images.forEach(imagePath => {
+                        const gridItem = document.createElement("div");
+                        gridItem.className = "grid-item";
+
+                        const img = document.createElement("img");
+                        img.src = imagePath;
+                        img.style.width = "100%";
+
+                        gridItem.appendChild(img);
+                        gridContainer.appendChild(gridItem);
+                    });
                 });
         });
     </script>
