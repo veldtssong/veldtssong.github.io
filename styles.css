@@ -1,90 +1,101 @@
 body {
     margin: 0;
     display: flex;
-    min-height: 100vh; /* Ensure body takes full viewport height */
+    min-height: 100vh;
     font-family: "Helvetica Light", Arial, sans-serif;
-    letter-spacing: -0.06em; /* Kerning */
+    letter-spacing: -0.06em;
 }
 
 h3 {
-    opacity: 0.5; /* Adjust the opacity value as needed */
+    opacity: 0.5;
 }
 
 .instagram-logo {
-    width: 20px; /* Set the width of the Instagram logo */
-    height: auto; /* Maintain aspect ratio */
+    width: 20px;
+    height: auto;
     padding-bottom: 5%;
 }
 
 .container {
     display: flex;
-    flex-direction: row; /* Ensure the navbar and content are side by side */
+    flex-direction: row;
     flex: 1;
-    min-height: 100vh; /* Ensure container takes full viewport height */
+    min-height: 100vh;
 }
 
 .navbar {
     background-color: #f4f4f4;
     padding: 20px;
     min-width: 300px;
-    width: 50%;
-    height: 100%; /* Ensure navbar takes full viewport height */
+    width: 300px; /* Initial width */
+    height: 100%;
     display: flex;
     flex-direction: column;
-    margin-right: 20%; /* Add margin for space between navbar and grid container */
-    overflow: hidden; /* Hide overflow content */
-    flex-grow: 1; /* Allow navbar to grow and fill available space */
+    margin-right: 20px;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure navbar stays above content */
+    transition: opacity 0.5s ease, width 0.5s ease, margin-right 0.5s ease; /* Add transition for opacity, width, and margin-right */
+    opacity: 1; /* Initial state */
 }
 
-.about {
-    opacity: 50%;
+.navbar.hidden {
+    opacity: 0; /* Fading out the navbar instead of completely hiding it immediately */
+    width: 0;
+    margin-right: -300px; /* Move navbar out of visible area */
 }
 
-.navbar h1,
-.navbar h2,
-.navbar h3 {
-    margin: 0; /* Remove default margin */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Display ellipsis for overflow text */
-    font-size: 1.5rem; /* Set initial font size */
-    transition: font-size 0.2s; /* Smooth transition for font size changes */
-    padding: 10px 0; /* Add padding to the top and bottom */
+.navbar h1, .navbar h2, .navbar h3 {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.5rem;
+    transition: font-size 0.2s;
+    padding: 10px 0;
 }
 
 .navbar ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .grid-container {
+    overflow: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns layout */
-    grid-template-rows: auto; /* Adjust rows layout */
-    gap: 20px; /* Adjust spacing between items */
-    flex: 1;
-    overflow: auto; /* Add scroll if content exceeds viewport */
-    align-items: center; /* Center the items vertically */
-    justify-items: center; /* Center the items horizontally */
-    padding: 30px; /* Default padding */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Adjust gap between grid items */
+    align-items: center;
+    justify-items: center;
+    padding: 30px; /* Equal padding on all sides */
+    transition: width 0.5s ease, padding 0.5s ease; /* Add transition for width and padding changes */
+    width: calc(100% - 340px); /* Initial width considering navbar width and additional margin */
+}
+
+.grid-container.full-width {
+    width: 100%; /* Full width when navbar is hidden */
+    padding: 30px 30px; /* 30px top and bottom, 30px left and right */
 }
 
 .grid-item {
     display: flex;
-    flex-direction: column; /* Arrange image and text vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    max-width: 100%;
+    padding-right: 20px; /* Adjust padding to suit your layout */
 }
 
-p {
-    font-family: "Helvetica Light", Arial, sans-serif; /* Use the same font as body */
-    text-align: center; /* Center the text */
+p, a {
+    font-family: "Helvetica Light", Arial, sans-serif;
+    text-align: center; 
 }
 
 a {
-    text-decoration: none; /* Remove underline */
-    color: black; /* Set link color to black */
+    text-decoration: none;
+    color: black;
 }
 
 img {
@@ -94,91 +105,106 @@ img {
 }
 
 .grid-item:nth-child(odd) {
-    grid-column: 1 / 2; /* Place odd items in the first column */
-    grid-row: span 2; /* Span across two rows */
-    margin-top: 1%; /* Set the top margin for odd items */
+    grid-column: 1 / 2;
+    grid-row: span 2;
+    margin-top: 1%;
 }
 
 .grid-item:nth-child(even) {
-    grid-column: 2 / 3; /* Place even items in the second column */
-    grid-row: span 2; /* Span across two rows */
+    grid-column: 2 / 3;
+    grid-row: span 2;
 }
 
-/* Media Queries for tablets and smaller screens */
 @media (max-width: 1024px) {
     .container {
-        flex-direction: column; /* Stack navbar and content vertically */
+        flex-direction: column;
     }
 
     .navbar {
-        padding: 15px; /* Reduce padding for smaller screens */
-        min-width: 50%; /* Ensure navbar takes full width */
+        padding: 15px;
+        min-width: 50%;
         max-width: 80%;
         width: 100%;
     }
 
-    .navbar h2,
-    .navbar h3 {
-        font-size: 1rem; /* Reduce font size for smaller screens */
+    .navbar h2, .navbar h3 {
+        font-size: 1rem;
     }
+
+    .grid-container.full-width {
+        width: 100%; /* Full width when navbar is hidden */
+        padding: 30px 30px; /* 30px top and bottom, 30px left and right */
+    }
+
     .grid-item {
-        margin: 1%; /* Reduce margins for smaller screens */
+        margin: 1%;
     }
 
     .grid-item:nth-child(odd) {
-        margin-top: 10%; /* Reduce top margin for smaller screens */
+        margin-top: 10%;
+    }
+
+    .grid-container {
+        width: calc(100% - 30px); /* Adjust width to account for padding */
+        padding: 15px; /* Adjust padding for smaller screens */
+        gap: 15px; /* Adjust gap for smaller screens */
+    }
+
+    .grid-item {
+        max-width: calc(50% - 15px); /* Adjust max-width to account for gap */
     }
 }
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 10px; /* Scaled down padding */
+        padding: 10px;
     }
 
-    .navbar h2,
-    .navbar h3 {
-        font-size: 0.7rem; /* Scaled down font size */
+    .navbar h2, .navbar h3 {
+        font-size: 0.7rem;
     }
 
     .grid-item {
-        margin: 0.25% auto; /* Center grid items horizontally with equal space left and right */
-        width: 90%; /* Adjusted width for grid items */
+        margin: 5px; /* Adjust margin for smaller screens */
+        width: calc(100% - 20px); /* Adjust width to account for padding */
     }
 
     .grid-item:nth-child(odd) {
-        margin-top: 2.5%; /* Scaled down top margin */
+        margin-top: 10px; /* Adjust top margin for odd grid items */
     }
 
     .grid-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 15px; /* Adjusted padding for very small screens */
+        padding: 10px; /* Adjust padding for very small screens */
+        width: 100%; /* Full width on very small screens */
+        gap: 10px; /* Adjust gap for very small screens */
+        
+    }
+    .grid-container.full-width {
+        width: 100%; /* Full width when navbar is hidden */
+        padding: 30px 10px; /* 30px top and bottom, 30px left and right */
+    }
+    .grid-item {
+        max-width: calc(100%); /* Adjust max-width to account for gap */
     }
 }
 
-.contact {
+.contact, form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    width: 100%; /* Take full width of the grid item */
-    max-width: 100%; /* Maintain maximum width */
-}
-
-form {
-    width: 100%; /* Take full width of the content container */
-    padding: 20px;
+    width: 100%;
 }
 
 form label {
-    display: block;
     margin-bottom: 8px;
 }
 
-form input,
-form textarea {
+form input, form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -201,6 +227,6 @@ form button:hover {
 }
 
 form textarea {
-    resize: none; /* Prevent textarea from being resizable */
-    height: 150px; /* Fixed height for the textarea */
+    resize: none;
+    height: 150px;
 }
