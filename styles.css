@@ -159,11 +159,15 @@ img {
     .navbar {
         padding: 10px;
     }
-
-    .navbar h2, .navbar h3 {
+    .navbar h2{
+        font-size: 1.1rem;
+    }
+    .navbar h3 {
         font-size: 0.7rem;
     }
-
+    .navbar ul {
+        font-size: 0.8rem;
+    }
     .grid-item {
         margin: 5px; /* Adjust margin for smaller screens */
         width: calc(100% - 20px); /* Adjust width to account for padding */
