@@ -235,9 +235,20 @@ form textarea {
     height: 150px;
 }
 .vsshop {
-    padding-top: 56px;
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    height: 100vh; /* Full viewport height for demonstration purposes */
+    text-align: center; /* Center text inside inline elements */
+}
+.vsshop ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
+
 .vsshop a {
+    font-size: 56px;
     color: #FF10F0;
 }

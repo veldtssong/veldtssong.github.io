@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edric Maglalang</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+</head>
+<body>
+    <div id="navbar-placeholder"></div> <!-- Placeholder for the navbar -->
+    <div class="vsshop">
+        <ul>
+            <li><a href="https://www.veldtssong.com/">veldtssong.com</a></li>
+            <li><a href="https://www.veldtssong.com/">veldtssong.com</a></li>
+            <li><a href="https://www.veldtssong.com/">veldtssong.com</a></li>
+            <li><a href="https://www.veldtssong.com/">veldtssong.com</a></li>
+            <li><a href="https://www.veldtssong.com/">veldtssong.com</a></li>
+        </ul>    
+    </div>
+    <script>
+        // JavaScript to load the navbar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navbar-placeholder").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
