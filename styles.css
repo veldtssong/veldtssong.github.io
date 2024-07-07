@@ -234,3 +234,10 @@ form textarea {
     resize: none;
     height: 150px;
 }
+.vsshop {
+    padding-top: 56px;
+}
+
+.vsshop a {
+    color: #FF10F0;
+}
