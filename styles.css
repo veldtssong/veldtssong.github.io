@@ -252,3 +252,9 @@ form textarea {
     font-size: 56px;
     color: #FF10F0;
 }
+.right-aligned {
+    text-align: right;
+    line-height: 2;
+    padding-right: 10%;
+    padding-left: 10%;
+}
